@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.VpsCockpit" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#39FF14</item>
+        <item name="colorPrimaryVariant">#1A8035</item>
+        <item name="colorOnPrimary">#050705</item>
+        <item name="android:statusBarColor">#050705</item>
+        <item name="android:navigationBarColor">#050705</item>
+        <item name="android:windowBackground">#050705</item>
+    </style>
+</resources>

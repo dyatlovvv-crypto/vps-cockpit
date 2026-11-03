@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tunnel_channel">VPS tunnel</string>
+    <string name="tunnel_connecting">Подключаю туннель…</string>
+    <string name="tunnel_ready">Туннель готов</string>
+    <string name="tunnel_failed">Туннель упал</string>
+    <string name="login_title">VPS COCKPIT</string>
+    <string name="login_hint">SSH → локальный туннель → Cockpit. Данные только на этом телефоне.</string>
+    <string name="login_host">Host / IP</string>
+    <string name="login_user">SSH user</string>
+    <string name="login_password">SSH password</string>
+    <string name="login_ssh_port">SSH port</string>
+    <string name="login_remote_port">Cockpit port на сервере</string>
+    <string name="login_local_port">Local port на телефоне</string>
+    <string name="login_connect">ПОДКЛЮЧИТЬ</string>
+    <string name="change_server">Сменить сервер</string>
+</resources>

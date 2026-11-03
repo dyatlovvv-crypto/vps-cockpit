@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050705"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.12"
+            android:paddingBottom="4dp"
+            android:text="@string/login_title"
+            android:textColor="#39FF14"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingBottom="16dp"
+            android:text="@string/login_hint"
+            android:textColor="#8CFF8C"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/inputHost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#0B110B"
+            android:fontFamily="monospace"
+            android:hint="@string/login_host"
+            android:inputType="textUri"
+            android:padding="14dp"
+            android:textColor="#39FF14"
+            android:textColorHint="#1A8035"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#0B110B"
+            android:fontFamily="monospace"
+            android:hint="@string/login_user"
+            android:inputType="text"
+            android:padding="14dp"
+            android:textColor="#39FF14"
+            android:textColorHint="#1A8035"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#0B110B"
+            android:fontFamily="monospace"
+            android:hint="@string/login_password"
+            android:inputType="textPassword"
+            android:padding="14dp"
+            android:textColor="#39FF14"
+            android:textColorHint="#1A8035"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputSshPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#0B110B"
+            android:fontFamily="monospace"
+            android:hint="@string/login_ssh_port"
+            android:inputType="number"
+            android:padding="14dp"
+            android:text="22"
+            android:textColor="#39FF14"
+            android:textColorHint="#1A8035"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputRemotePort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#0B110B"
+            android:fontFamily="monospace"
+            android:hint="@string/login_remote_port"
+            android:inputType="number"
+            android:padding="14dp"
+            android:text="9090"
+            android:textColor="#39FF14"
+            android:textColorHint="#1A8035"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputLocalPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:background="#0B110B"
+            android:fontFamily="monospace"
+            android:hint="@string/login_local_port"
+            android:inputType="number"
+            android:padding="14dp"
+            android:text="19090"
+            android:textColor="#39FF14"
+            android:textColorHint="#1A8035"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/loginError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingBottom="10dp"
+            android:textColor="#FF3333"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#1A8035"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/login_connect"
+            android:textColor="#39FF14" />
+    </LinearLayout>
+</ScrollView>

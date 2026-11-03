@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Matrix Core bg -->
+    <path
+        android:fillColor="#050705"
+        android:pathData="M0,0h108v108h-108z" />
+
+    <!-- faint grid -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1A8035"
+        android:strokeWidth="0.6"
+        android:pathData="M18,18h72M18,36h72M18,54h72M18,72h72M18,90h72" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1A8035"
+        android:strokeWidth="0.6"
+        android:pathData="M18,18v72M36,18v72M54,18v72M72,18v72M90,18v72" />
+
+    <!-- corner brackets -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="square"
+        android:pathData="M14,28V14h14M80,14h14v14M94,80v14H80M28,94H14V80" />
+
+    <!-- outer gauge track -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1A8035"
+        android:strokeWidth="5"
+        android:pathData="M54,22a32,32 0 1,1 0,64a32,32 0 1,1 0,-64" />
+
+    <!-- neon arc (~70% load) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="5.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,22a32,32 0 1,1 -27.7,16" />
+
+    <!-- tick marks -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="1.4"
+        android:strokeLineCap="square"
+        android:pathData="M54,16v5M54,87v5M16,54h5M87,54h5M28.3,28.3l3.5,3.5M76.2,76.2l3.5,3.5M28.3,79.7l3.5,-3.5M76.2,31.8l3.5,-3.5" />
+
+    <!-- inner core disc -->
+    <path
+        android:fillColor="#0B110B"
+        android:strokeColor="#1A8035"
+        android:strokeWidth="1.2"
+        android:pathData="M54,40a14,14 0 1,1 0,28a14,14 0 1,1 0,-28" />
+
+    <!-- server bars / host glyph -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M46,46h16v3.2h-16zM46,52.4h16v3.2h-16zM46,58.8h10v3.2h-10z" />
+
+    <!-- status dot -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M60.5,60.4a2.2,2.2 0 1,1 0,4.4a2.2,2.2 0 1,1 0,-4.4" />
+</vector>
