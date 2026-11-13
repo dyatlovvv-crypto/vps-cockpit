@@ -23,8 +23,8 @@ android {
         minSdk = 26
         targetSdk = 35
 
-        val appVersionName = "1.3.0"
-        versionCode = 28
+        val appVersionName = "1.3.1"
+        versionCode = 29
         versionName = appVersionName
         resValue("string", "app_name", "VPS Cockpit")
         resValue("string", "app_version", appVersionName)
@@ -113,4 +113,6 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("com.github.mwiede:jsch:0.2.21")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("com.google.truth:truth:1.4.4")
 }

@@ -76,8 +76,10 @@ class SshTunnelService : Service() {
 
     private fun runTunnelLoop(cfg: TunnelConfig) {
         var attempt = 0
+        var hostKeyChanged = false
         while (running.get()) {
             attempt++
+            val pins = HostKeyPins.forApp(this)
             try {
                 val msg = "SSH ${cfg.host}:${cfg.sshPort} (попытка $attempt)…"
                 Log.i(TAG, msg)
@@ -85,6 +87,7 @@ class SshTunnelService : Service() {
                 updateNotification(msg)
 
                 val jsch = JSch()
+                jsch.hostKeyRepository = pins
                 if (!BuildConfig.PUBLIC_BUILD) {
                     try {
                         val keyId = resources.getIdentifier("vps_ssh_key", "raw", packageName)
@@ -102,7 +105,7 @@ class SshTunnelService : Service() {
                     s.setPassword(cfg.password)
                 }
                 val cfgProps = Properties().apply {
-                    put("StrictHostKeyChecking", "no")
+                    put("StrictHostKeyChecking", "yes")
                     put(
                         "PreferredAuthentications",
                         if (BuildConfig.PUBLIC_BUILD) "password,keyboard-interactive,publickey"
@@ -136,9 +139,18 @@ class SshTunnelService : Service() {
                 }
             } catch (t: Throwable) {
                 Log.e(TAG, "tunnel failed", t)
-                val err = t.message ?: t.javaClass.simpleName
-                broadcast(TunnelEvents.STATE_FAILED, "Туннель упал: $err")
-                updateNotification(getString(R.string.tunnel_failed) + ": " + err)
+                val change = pins.lastChange
+                if (change != null) {
+                    hostKeyChanged = true
+                    running.set(false)
+                    val msg = getString(R.string.hostkey_changed, cfg.host, change.presented)
+                    broadcast(TunnelEvents.STATE_HOSTKEY_CHANGED, msg)
+                    updateNotification(getString(R.string.hostkey_changed_short))
+                } else {
+                    val err = t.message ?: t.javaClass.simpleName
+                    broadcast(TunnelEvents.STATE_FAILED, "Туннель упал: $err")
+                    updateNotification(getString(R.string.tunnel_failed) + ": " + err)
+                }
             } finally {
                 cleanupSession()
             }
@@ -150,7 +162,7 @@ class SshTunnelService : Service() {
                 break
             }
         }
-        broadcast(TunnelEvents.STATE_STOPPED, "Туннель остановлен")
+        if (!hostKeyChanged) broadcast(TunnelEvents.STATE_STOPPED, "Туннель остановлен")
     }
 
     private fun stopTunnel() {

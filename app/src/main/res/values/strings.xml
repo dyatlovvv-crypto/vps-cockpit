@@ -4,6 +4,12 @@
     <string name="tunnel_connecting">Подключаю туннель…</string>
     <string name="tunnel_ready">Туннель готов</string>
     <string name="tunnel_failed">Туннель упал</string>
+    <string name="hostkey_changed">Ключ SSH-сервера %1$s изменился. Это может быть перехват соединения. Подключение заблокировано.\n\nНовый отпечаток: %2$s</string>
+    <string name="hostkey_changed_short">Ключ сервера изменился, подключение заблокировано</string>
+    <string name="hostkey_dialog_title">Ключ сервера изменился</string>
+    <string name="hostkey_dialog_reset">Доверять новому ключу</string>
+    <string name="hostkey_dialog_cancel">Не подключаться</string>
+    <string name="hostkey_dialog_hint">Сбрасывай, только если сам переустанавливал сервер или менял SSH-ключи. Иначе не подключайся.</string>
     <string name="login_title">VPS COCKPIT</string>
     <string name="login_hint">SSH → локальный туннель → Cockpit. Данные только на этом телефоне.</string>
     <string name="login_host">Host / IP</string>

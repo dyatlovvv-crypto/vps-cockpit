@@ -21,6 +21,7 @@ import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -86,7 +87,31 @@ class MainActivity : AppCompatActivity() {
                 web.visibility = View.GONE
                 loaded = false
             }
+            TunnelEvents.STATE_HOSTKEY_CHANGED -> {
+                progress.visibility = View.GONE
+                status.visibility = View.VISIBLE
+                web.visibility = View.GONE
+                loaded = false
+                showHostKeyDialog(message)
+            }
         }
+    }
+
+    private var hostKeyDialog: AlertDialog? = null
+
+    private fun showHostKeyDialog(message: String) {
+        if (hostKeyDialog?.isShowing == true || isFinishing) return
+        hostKeyDialog = AlertDialog.Builder(this)
+            .setTitle(R.string.hostkey_dialog_title)
+            .setMessage(message + "\n\n" + getString(R.string.hostkey_dialog_hint))
+            .setCancelable(false)
+            .setNegativeButton(R.string.hostkey_dialog_cancel, null)
+            .setPositiveButton(R.string.hostkey_dialog_reset) { _, _ ->
+                val cfg = TunnelConfigStore.load(this)
+                HostKeyPins.forget(this, cfg.host, cfg.sshPort)
+                startTunnelService()
+            }
+            .show()
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -183,7 +208,7 @@ class MainActivity : AppCompatActivity() {
 
             @SuppressLint("WebViewClientOnReceivedSslError")
             override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
-                handler?.proceed()
+                if (TunnelTls.mayProceed(error?.url)) handler?.proceed() else handler?.cancel()
             }
         }
 

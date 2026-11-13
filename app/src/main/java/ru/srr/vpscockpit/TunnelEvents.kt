@@ -9,4 +9,5 @@ object TunnelEvents {
     const val STATE_READY = "ready"
     const val STATE_FAILED = "failed"
     const val STATE_STOPPED = "stopped"
+    const val STATE_HOSTKEY_CHANGED = "hostkey_changed"
 }
